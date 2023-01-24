@@ -14,12 +14,10 @@ import java.util.Scanner;
 
 public class ContactList
 {
-    // TODO: Create your array contacts
-    private ArrayList<Student> contacts = new ArrayList<Student>();
+    private ArrayList<Person> contacts;
 
-    // TODO: Write a Constructor
-    public ContactList(ArrayList<Student> contacts){
-        this.contacts = contacts;
+    public ContactList(){
+        contacts = new ArrayList <Person>();
     }
 
     public void printMenuOptions() {
@@ -46,11 +44,26 @@ public class ContactList
                             "1. Student\n2. Worker");
         int num = input.nextInt();
 
-        if(num == 1){
+        System.out.println("Please fill in the following information:\nFirst name: ");
+        String fname = input.nextLine();
+        System.out.println();
+        System.out.println("Last name: ");
+        String lname = input.nextLine();
+        System.out.println();
+        System.out.println("Phone number: ");
+        String phoneNum = input.nextLine();
 
+        if(num == 1){
+            System.out.println("Grade: ");
+            int grade = input.nextInt();
+
+            Student stu = new Student(fname, lname, phoneNum, grade);
         }
         else{
+            System.out.println("Occupation: ");
+            String job = input.nextLine();
 
+            Worker wor = new Worker(fname, lname, phoneNum, job);
         }
 
     }
@@ -68,7 +81,34 @@ public class ContactList
      * @param sortBy: 0=firstName, 1=lastName, 2=phoneNumber
      */
     public void sort(int sortBy) {
-        // TODO: Complete the sort method
+        int n = contacts.size();
+
+        for(int pass = 1; pass < n; pass++){
+            for(int comp = 0; comp < n-pass; comp++){
+                if(sortBy == 0){
+                    if(contacts.get(comp).getFirstName().compareTo(contacts.get(comp+1).getFirstName())>0){
+                        Person temp = contacts.get(comp);
+                        contacts.set(comp, contacts.get(comp+1));
+                        contacts.set(comp+1, temp);
+                    }
+                }
+                else if(sortBy == 1){
+                    if(contacts.get(comp).getLastName().compareTo(contacts.get(comp+1).getLastName())>0){
+                        Person temp = contacts.get(comp);
+                        contacts.set(comp, contacts.get(comp+1));
+                        contacts.set(comp+1, temp);
+                    }
+                }
+                else{
+                    if(contacts.get(comp).getPhoneNumber().compareTo(contacts.get(comp+1).getPhoneNumber())>0){
+                        Person temp = contacts.get(comp);
+                        contacts.set(comp, contacts.get(comp+1));
+                        contacts.set(comp+1, temp);
+                    }
+                }
+
+            }
+        }
     }
 
     // TODO: Write searchByFirstName
