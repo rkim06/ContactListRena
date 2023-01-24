@@ -73,6 +73,9 @@ public class ContactList
      */
     public void printContacts() {
         // TODO: Complete the printContacts method
+        for(int i = 0; i<contacts.size(); i++){
+            System.out.println(contacts.get(i));
+        }
     }
 
     /**
@@ -111,17 +114,13 @@ public class ContactList
         }
     }
 
-    // TODO: Write searchByFirstName
-
-    // TODO: Write searchByLastName
-
-    // TODO: Write searchByPhoneNumber
 
     /**
      * Lists just the Student objects in the Contact List
      */
     public void listStudents() {
         // TODO: Complete the listStudents method
+        for()
     }
 
     /**
