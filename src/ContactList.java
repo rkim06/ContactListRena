@@ -20,6 +20,7 @@ public class ContactList
         contacts = new ArrayList <Person>();
     }
 
+    //prints the instructions
     public void printMenuOptions() {
         System.out.println("Menu: ");
         System.out.println("1. Add Contact");
@@ -37,11 +38,13 @@ public class ContactList
      * Asks user for input to create and add a new Person
      * to the contact list
      */
+    //adds a contact to the ArrayLists
     public void addContact() {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Select a type of contact to add: \n"+
                             "1. Student\n2. Worker");
+        //stores either student or worker
         int num = input.nextInt();
         input.nextLine();
 
@@ -54,8 +57,7 @@ public class ContactList
         System.out.println("Phone number: ");
         String phoneNum = input.nextLine();
 
-        System.out.println(num);
-
+        //if a student, then the grade is asked for
         if(num == 1){
             input.nextLine();
             System.out.println("Grade: ");
@@ -64,6 +66,7 @@ public class ContactList
 
             Student stu = new Student(fname, lname, phoneNum, grade);
         }
+        //if a student, then the occupation is asked for
         else{
             System.out.println("Occupation: ");
             String job = input.nextLine();
