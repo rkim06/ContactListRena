@@ -94,24 +94,32 @@ public class ContactList
     public void sort(int sortBy) {
         int n = contacts.size();
 
+        //loops through the contacts to compare the pairs
         for(int pass = 1; pass < n; pass++){
             for(int comp = 0; comp < n-pass; comp++){
+                //sorts by first name if 0
                 if(sortBy == 0){
+                    //gets and compares the first name of the contact to the input
                     if(contacts.get(comp).getFirstName().compareTo(contacts.get(comp+1).getFirstName())>0){
+                        //uses a temporary variable to swap the contacts
                         Person temp = contacts.get(comp);
                         contacts.set(comp, contacts.get(comp+1));
                         contacts.set(comp+1, temp);
                     }
                 }
                 else if(sortBy == 1){
+                    //gets and compares the last name of the contact to the input
                     if(contacts.get(comp).getLastName().compareTo(contacts.get(comp+1).getLastName())>0){
+                        //uses a temporary variable to swap the contacts
                         Person temp = contacts.get(comp);
                         contacts.set(comp, contacts.get(comp+1));
                         contacts.set(comp+1, temp);
                     }
                 }
                 else if(sortBy == 2){
+                    //gets and compares the phone number of the contact to the input
                     if(contacts.get(comp).getPhoneNumber().compareTo(contacts.get(comp+1).getPhoneNumber())>0){
+                        //uses a temporary variable to swap the contacts
                         Person temp = contacts.get(comp);
                         contacts.set(comp, contacts.get(comp+1));
                         contacts.set(comp+1, temp);
